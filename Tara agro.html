@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TARA Agro Solutions</title>
+  <meta name="description" content="Discover agri-tech tools & services tailored for Indian farmers. TARA Agro connects you to the right solutions." />
+  <meta name="keywords" content="agritech, farmer tools, India agriculture, TARA Agro, smart farming" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 text-gray-900 transition-colors duration-300" id="body">
+
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between p-4 bg-green-700 text-white">
+    <h1 class="text-2xl font-bold">TARA Agro</h1>
+    <div class="space-x-4">
+      <button onclick="toggleLanguage()" class="hover:underline" id="langBtn">हिंदी</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center py-16 px-4">
+    <h2 class="text-4xl font-bold mb-4" id="subtitle"></h2>
+    <p class="text-lg mb-6" id="description"></p>
+    <div class="space-x-4">
+      <a href="/farmer" class="bg-green-600 text-white px-6 py-2 rounded-xl hover:bg-green-700" id="farmerBtn"></a>
+      <a href="/provider" class="bg-yellow-500 text-white px-6 py-2 rounded-xl hover:bg-yellow-600" id="providerBtn"></a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-12 px-6 bg-white">
+    <h3 class="text-3xl font-semibold mb-4" id="whatWeDoTitle"></h3>
+    <p class="max-w-3xl mx-auto" id="whatWeDoText"></p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-12 px-6 bg-green-100">
+    <h3 class="text-2xl font-semibold mb-6 text-center" id="howItWorks"></h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div>
+        <h4 class="text-xl font-bold">Step 1</h4>
+        <p id="step1"></p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">Step 2</h4>
+        <p id="step2"></p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">Step 3</h4>
+        <p id="step3"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-12 px-6">
+    <h3 class="text-2xl font-semibold mb-6 text-center" id="featuresTitle"></h3>
+    <ul class="list-disc max-w-xl mx-auto space-y-2" id="featureList"></ul>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-12 px-6 bg-gray-100">
+    <h3 class="text-2xl font-semibold text-center mb-6" id="testimonials"></h3>
+    <div class="max-w-2xl mx-auto space-y-4">
+      <blockquote class="bg-white p-4 rounded-lg shadow">“<span id="testimonial1"></span>”</blockquote>
+      <blockquote class="bg-white p-4 rounded-lg shadow">“<span id="testimonial2"></span>”</blockquote>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-12 px-6">
+    <h3 class="text-2xl font-semibold text-center mb-6" id="contact"></h3>
+    <form action="https://formspree.io/f/mwkgyyvp" method="POST" class="max-w-lg mx-auto space-y-4">
+      <input type="text" name="name" class="w-full p-2 border rounded" id="name" required />
+      <select name="role" class="w-full p-2 border rounded" id="roleSelect"></select>
+      <input type="text" name="phone" class="w-full p-2 border rounded" id="phone" required />
+      <textarea name="interest" class="w-full p-2 border rounded" id="interest"></textarea>
+      <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700" id="submitBtn"></button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 px-4 bg-green-700 text-white text-center">
+    <div class="mb-2">
+      <a href="/about" class="underline mx-1" id="footerAbout">About</a>|
+      <a href="/contact" class="underline mx-1" id="footerContact">Contact</a>|
+      <a href="/partner" class="underline mx-1" id="footerPartner">Partner With Us</a>
+    </div>
+    <div id="footerContactText">Email: support@taraagro.com | WhatsApp: +91-8564840042</div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        subtitle: "Bridging Farms with the Future",
+        description: "Discover the right agri-tech tools, agri products and services tailored to your needs.",
+        farmerBtn: "I'm a Farmer",
+        providerBtn: "I'm a Service Provider",
+        whatWeDoTitle: "What we do?",
+        whatWeDoText: "TARA Agro Solutions is a platform that helps farmers find the best products and services — from drones to fertilizers to expert consulting — based on their crop, land, and budget...",
+        howItWorks: "How It Works",
+        step1: "Farmers share their needs (crop, problem, region)",
+        step2: "We recommend relevant agri-tech and product solutions",
+        step3: "Service providers connect directly with verified leads",
+        features: "Platform Features",
+        featureList: [
+          "Personalized recommendations",
+          "Verified agri-tech providers",
+          "On-ground and digital exhibitions",
+          "Local language support",
+          "Trusted by 500+ farmers in the pilot phase"
+        ],
+        testimonials: "What Farmers Say",
+        testimonial1: "TARA Agro helped me find the right pest-control solution within days!",
+        testimonial2: "Through TARA’s exhibition, I connected with a soil lab and got my land tested for free.",
+        contact: "Get Started",
+        name: "Your Name",
+        roleOptions: ["Farmer", "Service Provider"],
+        phone: "Phone or WhatsApp",
+        interest: "Area of Interest",
+        submit: "Submit",
+        footerAbout: "About",
+        footerContact: "Contact",
+        footerPartner: "Partner With Us",
+        footerContactText: "Email: support@taraagro.com | WhatsApp: +91-8564840042"
+      },
+      hi: {
+        subtitle: "खेती को भविष्य से जोड़ते हैं",
+        description: "आपकी ज़रूरत के अनुसार कृषि तकनीक उपकरण, उत्पाद और सेवाएं खोजें।",
+        farmerBtn: "मैं किसान हूँ",
+        providerBtn: "मैं सेवा प्रदाता हूँ",
+        whatWeDoTitle: "हम क्या करते हैं?",
+        whatWeDoText: "तारा एग्रो सॉल्यूशंस एक ऐसा मंच है जो किसानों को उनकी फसल, भूमि और बजट के अनुसार ड्रोन से लेकर खाद और विशेषज्ञ परामर्श तक सर्वश्रेष्ठ उत्पाद और सेवाएं खोजने में मदद करता है...",
+        howItWorks: "यह कैसे काम करता है",
+        step1: "किसान अपनी ज़रूरतें साझा करते हैं (फसल, समस्या, क्षेत्र)",
+        step2: "हम उपयुक्त कृषि तकनीक और उत्पादों की सिफारिश करते हैं",
+        step3: "सेवा प्रदाता सीधे सत्यापित लीड्स से जुड़ते हैं",
+        features: "प्लेटफ़ॉर्म की विशेषताएं",
+        featureList: [
+          "व्यक्तिगत सिफारिशें",
+          "सत्यापित एग्रीटेक प्रदाता",
+          "मैदान पर और डिजिटल प्रदर्शनियाँ",
+          "स्थानीय भाषा समर्थन",
+          "पायलट चरण में 500+ किसानों द्वारा भरोसेमंद"
+        ],
+        testimonials: "किसान क्या कहते हैं",
+        testimonial1: "तारा एग्रो ने मुझे सही कीट नियंत्रण समाधान कुछ ही दिनों में दिलवा दिया!",
+        testimonial2: "तारा की प्रदर्शनी के माध्यम से, मैं एक मृदा प्रयोगशाला से जुड़ा और अपनी भूमि की मुफ्त जांच कराई।",
+        contact: "शुरुआत करें",
+        name: "आपका नाम",
+        roleOptions: ["किसान", "सेवा प्रदाता"],
+        phone: "फोन या व्हाट्सएप",
+        interest: "रुचि का क्षेत्र",
+        submit: "जमा करें",
+        footerAbout: "हमारे बारे में",
+        footerContact: "संपर्क करें",
+        footerPartner: "साझेदार बनें",
+        footerContactText: "ईमेल: support@taraagro.com | व्हाट्सएप: +91-8564840042"
+      }
+    };
+
+    let currentLang = "en";
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("subtitle").innerText = t.subtitle;
+      document.getElementById("description").innerText = t.description;
+      document.getElementById("farmerBtn").innerText = t.farmerBtn;
+      document.getElementById("providerBtn").innerText = t.providerBtn;
+      document.getElementById("whatWeDoTitle").innerText = t.whatWeDoTitle;
+      document.getElementById("whatWeDoText").innerText = t.whatWeDoText;
+      document.getElementById("howItWorks").innerText = t.howItWorks;
+      document.getElementById("step1").innerText = t.step1;
+      document.getElementById("step2").innerText = t.step2;
+      document.getElementById("step3").innerText = t.step3;
+      document.getElementById("featuresTitle").innerText = t.features;
+      document.getElementById("featureList").innerHTML = t.featureList.map(item => `<li>${item}</li>`).join('');
+      document.getElementById("testimonials").innerText = t.testimonials;
+      document.getElementById("testimonial1").innerText = t.testimonial1;
+      document.getElementById("testimonial2").innerText = t.testimonial2;
+      document.getElementById("contact").innerText = t.contact;
+      document.getElementById("name").placeholder = t.name;
+      document.getElementById("roleSelect").innerHTML = t.roleOptions.map(role => `<option>${role}</option>`).join('');
+      document.getElementById("phone").placeholder = t.phone;
+      document.getElementById("interest").placeholder = t.interest;
+      document.getElementById("submitBtn").innerText = t.submit;
+      document.getElementById("footerAbout").innerText = t.footerAbout;
+      document.getElementById("footerContact").innerText = t.footerContact;
+      document.getElementById("footerPartner").innerText = t.footerPartner;
+      document.getElementById("footerContactText").innerText = t.footerContactText;
+      document.getElementById("langBtn").innerText = lang === "en" ? "हिंदी" : "English";
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "hi" : "en";
+      setLanguage(currentLang);
+    }
+
+    // Initialize
+    setLanguage(currentLang);
+  </script>
+</body>
+</html>
